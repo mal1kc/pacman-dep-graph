@@ -1,6 +1,6 @@
 # !/bin/bash
 #
-# Copyright (C) 2022 Vincil Lau
+# Copyright (C) 2025 Malik Kökçan
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ echo 'digraph pacman {'
 
 for i in $(pacman -Qq); do
     i_id=$(echo $i | sed 's/-/_/g')
-    echo "    ${i_id} [label=\"$i\"];"
+    echo "    \"${i_id}\" [label=\"$i\"];"
 done
 
 for i in $(pacman -Qq); do
@@ -33,7 +33,7 @@ for i in $(pacman -Qq); do
     fi
     for j in ${required_by}; do
         j_id=$(echo $j | sed 's/-/_/g')
-        echo "    ${j_id} -> ${i_id};"
+        echo "    \"${j_id}\" -> \"${i_id};\""
     done
 done
 
